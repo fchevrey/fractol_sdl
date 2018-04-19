@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 13:56:00 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/10 16:53:51 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:31:49 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			burning_ship(t_param *param, t_image *img, t_limits lim,
 	i = pt_set(0, param->imax);
 	crd = pt_set(0, 0);
 	space.position = ptfl_bc(space.position, '/', space.zoom);
-	while (crd.x < param->win->size.x)
+	while (crd.x < param->win->size->x)
 	{
 		c.x = (crd.x * lim.incr.x) + lim.min.x;
 		c.y = (crd.y * lim.incr.y) + lim.min.y;
@@ -54,6 +54,6 @@ void			burning_ship(t_param *param, t_image *img, t_limits lim,
 		z.y = (crd.y * lim.incr.y) + lim.min.y;
 		i.x = i_value(i, z, c);
 		color_with_i(i, param, img, crd);
-		crd = pt_ypluseg(crd, 0, param->win->size.y);
+		crd = pt_ypluseg(crd, 0, param->win->size->y);
 	}
 }

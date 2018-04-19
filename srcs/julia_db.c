@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 19:17:50 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/10 17:33:25 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:30:37 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void			julia_db(t_param *param, t_image *img, t_limits_db lim,
 	i.x = 0;
 	i.y = param->imax;
 	space.position = ptdb_bc(space.position, '/', space.zoom);
-	while (crd.x < param->win->size.x)
+	while (crd.x < param->win->size->x)
 	{
 		c.x = ((param->mouse.x * 2.7) / 2560) - 2.1;
 		c.y = ((param->mouse.y * 2.4) / 1440) - 1.2;
@@ -39,6 +39,6 @@ void			julia_db(t_param *param, t_image *img, t_limits_db lim,
 		z.y = (crd.y * lim.incr.y) + lim.min.y;
 		i.x = get_i_value_db(i, z, c);
 		color_with_i(i, param, img, crd);
-		crd = pt_ypluseg(crd, 0, param->win->size.y);
+		crd = pt_ypluseg(crd, 0, param->win->size->y);
 	}
 }

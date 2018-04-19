@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 14:17:35 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 16:05:23 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 19:25:47 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ int				ft_mouse_wheel(int y, void *param)
 	t_param		*par;
 
 	par = (t_param*)param;
-	change_pos(par->mouse.x, par->mouse.y, par);
 	if (y > 0)
-		keyboard(KEY_PAD_SUB, param);
+	{
+		keyboard(SDLK_KP_PLUS, param);
+		change_pos(par->mouse.x, par->mouse.y, par);
+	}
 	else
-		keyboard(KEY_PAD_ADD, param);
+		keyboard(SDLK_KP_MINUS, param);
 	return (0);
 }

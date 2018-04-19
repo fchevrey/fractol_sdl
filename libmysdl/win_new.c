@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 15:15:47 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/18 21:09:36 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 19:11:28 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_win		*win_new(t_point size, char *title)
 			size.y,
 			SDL_WINDOW_SHOWN | SDL_WINDOW_MINIMIZED)))
 		return (NULL);
+	SDL_MaximizeWindow(info->ptr);
+	SDL_RestoreWindow(info->ptr);
 	if (!(info->size = (t_point*)malloc(sizeof(t_point))))
 		return (NULL);
 	info->imgs = NULL;

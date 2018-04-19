@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 15:43:45 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 15:57:36 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:26:35 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,22 @@ int				keyboard(int key, void *param)
 {
 	t_win				*win;
 	t_image				*img;
-	t_image				*ctrl_panel;
+	//t_image				*ctrl_panel;
 	int					ret;
 	t_param				*par;
 
 	par = (t_param*)param;
 	win = par->win;
 	img = lst_img_srch(par->win->imgs, 0);
-	ctrl_panel = lst_img_srch(par->win->imgs, 1);
-	if (!img || !ctrl_panel)
-		ft_exit(&par);
+	//ctrl_panel = lst_img_srch(par->win->imgs, 1);
+	//if (!img || !ctrl_panel)
+	//	ft_exit(&par);
 	ret = 0;
 	if ((ret = do_event(key, par)) == 1)
 		fractal(img, par);
 	if (ret == -1)
 		ft_exit(&par);
-	put_ctrl_panel(ctrl_panel, win, par);
+	//put_ctrl_panel(ctrl_panel, win, par);
 	if (key == SDLK_h)
 		put_img_to_win(img, win->ren);
 	return (0);

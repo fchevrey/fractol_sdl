@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 16:57:35 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/10 17:10:02 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:29:27 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			*pth_burning_ship(void *pth_param)
 		z.y = (pth.crd.y * pth.lim.incr.y) + pth.lim.min.y;
 		i.x = i_value(i, z, c);
 		color_with_i(i, pth.param, pth.img, pth.crd);
-		pth.crd = pt_ypluseg(pth.crd, 0, pth.param->win->size.y);
+		pth.crd = pt_ypluseg(pth.crd, 0, pth.param->win->size->y);
 	}
 	return (NULL);
 }

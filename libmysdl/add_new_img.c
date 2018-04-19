@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_new_img.c                                      :+:      :+:    :+:   */
+/*   add_new_                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/06 15:50:03 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/18 18:01:04 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 19:57:26 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmysdl.h"
 
-int		add_new_img(t_point size, SDL_Renderer *ren, t_list *src)
+int		add_new_texture(t_point size, SDL_Renderer *ren, t_list **src)
 {
-	t_image		*img;
+	t_texture	*tex;
 	t_list		*lst;
 	int			id;
 
+	if (!(tex = texture_new(size, ren)))
+		return (-1);
 	if (!src)
-		return (-1);
-	if (!(img = image_new(size, ren)))
-		return (-1);
-	lst = src;
+	{
+		*src = ft_lstnew(tex, 0);
+		return (0);
+	}
+	lst = *src;
 	id = -1;
 	while (lst->next)
 	{
@@ -30,7 +33,7 @@ int		add_new_img(t_point size, SDL_Renderer *ren, t_list *src)
 			id = lst->id + 1;
 		lst = lst->next;
 	}
-	if (!(lst->next = ft_lstnew(img, id)))
+	if (!(lst->next = ft_lstnew(tex, id)))
 		return (-1);
 	return (id);
 }

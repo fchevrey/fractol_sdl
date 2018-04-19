@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 13:57:53 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/10 17:05:48 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:31:12 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void			mandelbrot_db(t_param *param, t_image *img, t_limits_db lim,
 	c = ptdb_set(lim.min.x, lim.min.y);
 	crd = pt_set(0, 0);
 	space.position = ptdb_bc(space.position, '/', space.zoom);
-	while (crd.x < param->win->size.x)
+	while (crd.x < param->win->size->x)
 	{
 		c.x = (crd.x * lim.incr.x) + lim.min.x;
 		c.y = (crd.y * lim.incr.y) + lim.min.y;
@@ -45,6 +45,6 @@ void			mandelbrot_db(t_param *param, t_image *img, t_limits_db lim,
 			i.x = i.x + 1;
 		}
 		color_with_i(i, param, img, crd);
-		crd = pt_ypluseg(crd, 0, param->win->size.y);
+		crd = pt_ypluseg(crd, 0, param->win->size->y);
 	}
 }

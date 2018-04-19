@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 17:04:47 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/10 17:33:16 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 19:19:04 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void			*pth_julia(void *pth_param)
 		z.y = (pth.crd.y * pth.lim.incr.y) + pth.lim.min.y;
 		i.x = get_i_value(i, z, c);
 		color_with_i(i, pth.param, pth.img, pth.crd);
-		pth.crd = pt_ypluseg(pth.crd, 0, pth.param->win->size.y);
+		pth.crd = pt_ypluseg(pth.crd, 0, pth.param->win->size->y);
 	}
 	return (NULL);
 }

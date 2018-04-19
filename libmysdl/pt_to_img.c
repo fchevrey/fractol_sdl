@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pt_to_img.c                                        :+:      :+:    :+:   */
+/*   pt_to_tex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/03 18:10:54 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/18 16:44:17 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 20:41:30 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmysdl.h"
 
-void		pt_to_img(t_point pt, t_image *img, uint32_t color)
+void		pt_to_tex(t_point pt, t_texture *tex, uint32_t color)
 {
 	int				to_color;
 
-	if (!img)
+	if (!tex)
 		return ;
-	if (pt.x >= img->size->x || pt.y >= img->size->y || pt.x < 0 || pt.y < 0)
+	if (pt.x >= tex->size->x || pt.y >= tex->size->y || pt.x < 0 || pt.y < 0)
 		return ;
-	to_color = (pt.x + (pt.y * img->size->x));
-	//ft_putnbrnl(to_color);
-	img->tab_pxl[to_color] = color;
+	to_color = (pt.x + (pt.y * tex->size->x));
+	tex->tab_pxl[to_color] = color;
 }

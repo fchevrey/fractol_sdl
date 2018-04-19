@@ -6,7 +6,7 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2018/04/19 17:40:06 by fchevrey         ###   ########.fr        #
+#    Updated: 2018/04/19 19:18:43 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,9 @@ SRC_C = srcs/main.c srcs/get_color.c srcs/keyboard.c srcs/ft_mouse_wheel.c \
 		srcs/get_limits_db.c srcs/color_with_i.c srcs/lock.c \
 		srcs/change_fractal.c srcs/ft_exit.c srcs/ft_mouse.c \
 		srcs/set_space.c srcs/set_space_db.c srcs/fill_funar_key_event.c\
-		srcs/set_ctrl_panel.c srcs/put_ctrl_panel.c srcs/change_color.c \
-		srcs/get_i_value.c srcs/get_i_value_db.c srcs/t_event.c
+		srcs/get_i_value.c srcs/get_i_value_db.c srcs/ft_event.c \
+		srcs/change_color.c
+		#srcs/set_ctrl_panel.c srcs/put_ctrl_panel.c srcs/change_color.c \
 
 SRC_O = $(SRC_C:.c=.o)
 
@@ -45,13 +46,13 @@ SRC_PTHREAD_O = $(SRC_PTHREAD:.c=.o)
 INCLUDE = -I /Users/fchevrey/.brew/Cellar/sdl2/2.0.8/include/ -I includes/
 
 LIBS = -L /Users/fchevrey/.brew/Cellar/sdl2/2.0.8/lib/ -lSDL2 \
-		-L ../libpt/ -lpt -L ../libft/ -lft 
+		-L libpt/ -lpt -L libft/ -lft -L libmysdl/ -lmysdl
 
 CFLAGS = -Wall -Werror -Wextra $(INCLUDE)
 
 CC = gcc
 
-all: $(LIBFT) $(LIBVISU) $(NAME)
+all: $(LIBVISU) $(NAME)
 
 $(NAME): $(SRC_O) $(SRC_VANILLA_O)
 	gcc -o $(NAME) $(SRC_O) $(SRC_VANILLA_O)  $(INCLUDE) $(INCLUDE_SDL) \
@@ -59,8 +60,7 @@ $(NAME): $(SRC_O) $(SRC_VANILLA_O)
 
 bonus: $(LIBFT) $(LIBVISU) $(SRC_O) $(SRC_PTHREAD_O)
 	gcc -o $(NAME_BONUS) $(SRC_O) $(SRC_PTHREAD_O) -D_REENTRANT \
-		$(INCLUDE) $(INCLUDE_SDL) \
-		$(LIBS)
+		$(INCLUDE) $(INCLUDE_SDL) $(LIBS)
 
 $(LIBFT):
 	make -C libft/
@@ -82,4 +82,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re, all, $(LIBVISU), $(LIBFT)
+.PHONY: all, clean, fclean, re, all, $(LIBVISU), $(LIBFT), $(LIBPT)

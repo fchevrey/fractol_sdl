@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 13:56:30 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/10 17:19:12 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:34:08 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,14 @@ void				fractal(t_image *img, t_param *param)
 	tab_db[JULIA] = &julia_db;
 	tab_db[BURNING_SHIP] = &burning_ship_db;
 	if (param->space_db->zoom < ZOOM_MAX_FL)
-		lim = get_limits(param->win->size, param->space->zoom,
+		lim = get_limits((*param->win->size), param->space->zoom,
 				param->space->position);
 	else if (param->space_db->zoom >= ZOOM_MAX_FL)
-		lim_db = get_limits_db(param->win->size, param->space_db->zoom,
+		lim_db = get_limits_db((*param->win->size), param->space_db->zoom,
 				param->space_db->position);
 	if (param->space_db->zoom < ZOOM_MAX_FL)
 		tab[param->fractal](param, img, lim, (*param->space));
 	else if (param->space_db->zoom >= ZOOM_MAX_FL)
 		tab_db[param->fractal](param, img, lim_db, (*param->space_db));
-	mlx_put_image_to_window(param->win->mlx_ptr, param->win->win_ptr,
-			img->ptr, 0, 0);
+	put_img_to_win(img, param->win->ren);
 }

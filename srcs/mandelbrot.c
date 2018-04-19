@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 13:28:31 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/10 16:54:19 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:30:55 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void			mandelbrot(t_param *param, t_image *img, t_limits lim,
 	c = ptfl_set(lim.min.x, lim.min.y);
 	crd = pt_set(0, 0);
 	space.position = ptfl_bc(space.position, '/', space.zoom);
-	while (crd.x < param->win->size.x)
+	while (crd.x < param->win->size->x)
 	{
 		c.x = (crd.x * lim.incr.x) + lim.min.x;
 		c.y = (crd.y * lim.incr.y) + lim.min.y;
@@ -45,6 +45,6 @@ void			mandelbrot(t_param *param, t_image *img, t_limits lim,
 			i.x = i.x + 1;
 		}
 		color_with_i(i, param, img, crd);
-		crd = pt_ypluseg(crd, 0, param->win->size.y);
+		crd = pt_ypluseg(crd, 0, param->win->size->y);
 	}
 }

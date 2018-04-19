@@ -6,11 +6,11 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2018/04/19 15:00:27 by fchevrey         ###   ########.fr        #
+#    Updated: 2018/04/19 18:36:49 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libmysdl
+NAME = libmysdl.a
 
 SRC_C = get_color.c image_new.c free_img.c pt_to_img.c fill_img_in_color.c \
 		lst_img_new.c free_all_img.c add_new_img.c lst_img_srch.c \

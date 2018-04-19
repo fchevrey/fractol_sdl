@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:42:41 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 15:57:01 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 19:02:45 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ t_funar_keyb			*fill_funar_key_event(int *size)
 	tab[i++] = add_one(SDLK_KP_MINUS, &zoom_down);
 	tab[i++] = add_one(SDLK_f, &change_fractal);
 	tab[i++] = add_one(SDLK_c, &change_color);
-	tab[i++] = add_one(SDLK_c, &lock);
+	tab[i++] = add_one(SDLK_l, &lock);
 	return (tab);
 }

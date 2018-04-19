@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 16:28:06 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/11 14:12:43 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/19 18:44:22 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void	ft_exit(t_param **param)
 {
+	ft_putstr("exit");
 	if (!param || !*param)
 		exit(1);
 	free_win(&(*param)->win);
@@ -23,5 +24,6 @@ void	ft_exit(t_param **param)
 	free((*param)->space_db);
 	free(*param);
 	*param = NULL;
+	SDL_Quit();
 	exit(1);
 }
