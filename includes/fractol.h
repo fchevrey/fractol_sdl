@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/04 15:46:01 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 16:02:56 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:37:31 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct		s_param
 typedef struct		s_pth_param
 {
 	t_param			*param;
-	t_image			*img;
+	t_texture			*img;
 	t_space			space;
 	t_space_db		space_db;
 	t_limits		lim;
@@ -78,22 +78,22 @@ typedef struct		s_funar_keyb
 	void	(*f)(t_param*);
 }					t_funar_keyb;
 
-void				fractal(t_image *img, t_param *param);
+void				fractal(t_texture *img, t_param *param);
 void				set_space(t_space *space);
 void				set_space_db(t_space_db *space);
 t_limits			get_limits(t_point img_size, float zoom, t_ptfl pos);
 t_limits_db			get_limits_db(t_point img_size, float zoom, t_ptdb pos);
-void				mandelbrot(t_param *param, t_image *img, t_limits lim,
+void				mandelbrot(t_param *param, t_texture *img, t_limits lim,
 		t_space space);
-void				julia(t_param *param, t_image *img, t_limits lim,
+void				julia(t_param *param, t_texture *img, t_limits lim,
 		t_space space);
-void				burning_ship(t_param *param, t_image *img, t_limits lim,
+void				burning_ship(t_param *param, t_texture *img, t_limits lim,
 		t_space space);
-void				mandelbrot_db(t_param *param, t_image *img, t_limits_db lim,
+void				mandelbrot_db(t_param *param, t_texture *img, t_limits_db lim,
 		t_space_db space);
-void				julia_db(t_param *param, t_image *img, t_limits_db lim,
+void				julia_db(t_param *param, t_texture *img, t_limits_db lim,
 		t_space_db space);
-void				burning_ship_db(t_param *param, t_image *img,
+void				burning_ship_db(t_param *param, t_texture *img,
 		t_limits_db lim, t_space_db space);
 int					get_i_value(t_point i, t_ptfl z, t_ptfl c);
 int					get_i_value_db(t_point i, t_ptdb z, t_ptdb c);
@@ -108,7 +108,7 @@ unsigned int		get_color(unsigned char alpha, unsigned char red,
 int					keyboard(int key, void *param);
 int					ft_mouse(int x, int y, void *param);
 t_funar_keyb		*fill_funar_key_event(int *size);
-void				color_with_i(t_point i, t_param *param, t_image *img,
+void				color_with_i(t_point i, t_param *param, t_texture *img,
 		t_point crd);
 void				move_up(t_param *param);
 void				move_down(t_param *param);
@@ -122,8 +122,8 @@ void				iteration_max_down(t_param *param);
 void				change_fractal(t_param *param);
 void				lock(t_param *param);
 void				ft_exit(t_param **param);
-void				set_ctrl_panel(t_image *img, t_win *win);
-void				put_ctrl_panel(t_image *img, t_win *win, t_param *param);
+void				set_ctrl_panel(t_texture *img, t_win *win);
+void				put_ctrl_panel(t_texture *img, t_win *win, t_param *param);
 int					ft_mouse_wheel(int y, void *param);
 void				ft_event(void *param);
 #endif

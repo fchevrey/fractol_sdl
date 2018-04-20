@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 14:15:57 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 16:12:27 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:39:34 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static uint32_t		color_method_1(t_point i)
 	return (color);
 }
 
-void					color_with_i(t_point i, t_param *param, t_image *img,
+void					color_with_i(t_point i, t_param *param, t_texture *img,
 		t_point crd)
 {
 	uint32_t	color;
@@ -102,5 +102,5 @@ void					color_with_i(t_point i, t_param *param, t_image *img,
 		color = get_color(0, 0, 0, (i.x * 255) / i.y);
 	else if (param->color == 6)
 		color = get_color(0, (i.x * 255) / i.y, 0, 0);
-	pt_to_img(crd, img, color);
+	pt_to_tex(crd, img, color);
 }

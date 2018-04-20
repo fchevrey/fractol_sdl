@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_img_new.c                                      :+:      :+:    :+:   */
+/*   free_all_tex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/06 13:27:27 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/18 18:00:33 by fchevrey         ###   ########.fr       */
+/*   Created: 2018/03/23 16:37:39 by fchevrey          #+#    #+#             */
+/*   Updated: 2018/04/20 14:06:17 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libmysdl.h"
 
-t_list		*lst_img_new(t_point size, SDL_Renderer *ren, int id)
+void	free_all_tex(t_list **texs)
 {
-	t_image		*img;
 	t_list		*lst;
+	t_list		*lst_n;
+	t_texture	*tex;
 
-	img = image_new(size, ren);
-	lst = ft_lstnew(img, id);
-	return (lst);
+	if (!texs || !(*texs))
+		return ;
+	lst = *texs;
+	while (lst)
+	{
+		lst_n = lst->next;
+		tex = (t_texture*)lst->content;
+		free_tex(&tex);
+		free(lst);
+		lst = lst_n;
+	}
 }

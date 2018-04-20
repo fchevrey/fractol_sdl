@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 19:18:15 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 18:31:33 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:40:12 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int		i_value(t_point i, t_ptdb z, t_ptdb c)
 	return (i.x);
 }
 
-void			burning_ship_db(t_param *param, t_image *img, t_limits_db lim,
+void			burning_ship_db(t_param *param, t_texture *img, t_limits_db lim,
 		t_space_db space)
 {
 	t_ptdb			z;

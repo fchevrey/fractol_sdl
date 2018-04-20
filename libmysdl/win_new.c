@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 15:15:47 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 19:11:28 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:02:26 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_win		*win_new(t_point size, char *title)
 	SDL_RestoreWindow(info->ptr);
 	if (!(info->size = (t_point*)malloc(sizeof(t_point))))
 		return (NULL);
-	info->imgs = NULL;
+	info->texs = NULL;
 	info->ren = NULL;
 	info->size->x = size.x;
 	info->size->y = size.y;

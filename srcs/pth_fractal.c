@@ -6,14 +6,14 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 15:04:04 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 19:17:58 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 15:07:02 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <pthread.h>
 
-static void			pth_fractal(t_param *param, t_image *img, t_limits lim,
+static void			pth_fractal(t_param *param, t_texture *img, t_limits lim,
 		void *(algo)(void*))
 {
 	t_pth_param		pth[NB_THREAD];
@@ -43,7 +43,7 @@ static void			pth_fractal(t_param *param, t_image *img, t_limits lim,
 		pthread_join(thread[i], NULL);
 }
 
-void				fractal(t_image *img, t_param *param)
+void				fractal(t_texture *img, t_param *param)
 {
 	t_limits		lim;
 	void			*(*tab[6])(void*);

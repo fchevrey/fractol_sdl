@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_img_to_win.c                                   :+:      :+:    :+:   */
+/*   lst_tex_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 14:34:17 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/18 17:38:58 by fchevrey         ###   ########.fr       */
+/*   Created: 2018/04/20 14:22:26 by fchevrey          #+#    #+#             */
+/*   Updated: 2018/04/20 14:22:31 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmysdl.h"
 
-void	put_img_to_win(t_image *img, SDL_Renderer *ren)
+t_list		*lst_tex_new(t_point size, SDL_Renderer *ren, int id)
 {
-	SDL_UpdateTexture(img->tex, NULL, img->tab_pxl, img->size->x * sizeof(uint32_t));
-	SDL_RenderCopy(ren, img->tex, NULL, NULL);
-	SDL_RenderPresent(ren);
+	t_texture	*tex;
+	t_list		*lst;
+
+	tex = texture_new(size, ren);
+	lst = ft_lstnew(tex, id);
+	return (lst);
 }

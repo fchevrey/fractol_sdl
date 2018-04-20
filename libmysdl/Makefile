@@ -6,23 +6,24 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2018/04/19 18:36:49 by fchevrey         ###   ########.fr        #
+#    Updated: 2018/04/20 15:08:40 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libmysdl.a
 
-SRC_C = get_color.c image_new.c free_img.c pt_to_img.c fill_img_in_color.c \
-		lst_img_new.c free_all_img.c add_new_img.c lst_img_srch.c \
-		trace_line_img.c put_img_to_win.c win_new.c free_win.c
+SRC_C = get_color.c texture_new.c free_tex.c pt_to_tex.c fill_tex_in_color.c \
+		lst_tex_new.c free_all_tex.c add_new_tex.c lst_tex_srch.c \
+		trace_line_tex.c put_tex_to_win.c win_new.c free_win.c
 
 SRC_O = $(SRC_C:.c=.o)
 
-INCLUDE = -I ../includes/ -I /Users/fchevrey/.brew/Cellar/sdl2/2.0.8/include/
+USER = $(shell id -un)
+
+INCLUDE = -I ../includes/ -I /Users/$(USER)/.brew/Cellar/sdl2/2.0.8/include/SDL2
+#INCLUDE = -I ../SDL2/SDL2-2.0.8/include/ -I ../includes/
 
 CFLAGS = -Wall -Werror -Wextra $(INCLUDE)
-
-LIBS = -L ../libft/ -lft -L /Users/fchevrey/.brew/Cellar/sdl2/2.0.8/lib/ -lSDL2 -L ../libpt/ -lpt
 
 CC = gcc
 

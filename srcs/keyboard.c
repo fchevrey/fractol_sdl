@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 15:43:45 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 18:26:35 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:37:56 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ static int		do_event(int key, t_param *param)
 int				keyboard(int key, void *param)
 {
 	t_win				*win;
-	t_image				*img;
-	//t_image				*ctrl_panel;
+	t_texture				*img;
+	//t_texture				*ctrl_panel;
 	int					ret;
 	t_param				*par;
 
 	par = (t_param*)param;
 	win = par->win;
-	img = lst_img_srch(par->win->imgs, 0);
+	img = lst_tex_srch(par->win->texs, 0);
 	//ctrl_panel = lst_img_srch(par->win->imgs, 1);
 	//if (!img || !ctrl_panel)
 	//	ft_exit(&par);
@@ -62,6 +62,6 @@ int				keyboard(int key, void *param)
 		ft_exit(&par);
 	//put_ctrl_panel(ctrl_panel, win, par);
 	if (key == SDLK_h)
-		put_img_to_win(img, win->ren);
+		put_tex_to_win(img, win->ren);
 	return (0);
 }

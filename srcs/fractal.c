@@ -6,18 +6,18 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 13:56:30 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 18:34:08 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:40:31 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void				fractal(t_image *img, t_param *param)
+void				fractal(t_texture *img, t_param *param)
 {
 	t_limits		lim;
 	t_limits_db		lim_db;
-	void			(*tab[3])(t_param*, t_image*, t_limits, t_space);
-	void			(*tab_db[3])(t_param*, t_image*, t_limits_db, t_space_db);
+	void			(*tab[3])(t_param*, t_texture*, t_limits, t_space);
+	void			(*tab_db[3])(t_param*, t_texture*, t_limits_db, t_space_db);
 
 	if (!param || !img || param->fractal > BURNING_SHIP)
 		return ;
@@ -37,5 +37,5 @@ void				fractal(t_image *img, t_param *param)
 		tab[param->fractal](param, img, lim, (*param->space));
 	else if (param->space_db->zoom >= ZOOM_MAX_FL)
 		tab_db[param->fractal](param, img, lim_db, (*param->space_db));
-	put_img_to_win(img, param->win->ren);
+	put_tex_to_win(img, param->win->ren);
 }

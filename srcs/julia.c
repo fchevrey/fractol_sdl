@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 13:57:19 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 18:30:23 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:23:48 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** pour zoomer, il faudra augmenter la netteté
 */
 
-void			julia(t_param *param, t_image *img, t_limits lim, t_space space)
+void			julia(t_param *param, t_texture *img, t_limits lim, t_space space)
 {
 	t_ptfl			z;
 	t_ptfl			c;

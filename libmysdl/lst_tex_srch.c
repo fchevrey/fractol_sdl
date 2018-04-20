@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_new_                                 :+:      :+:    :+:   */
+/*   lst_tex_srch.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/06 15:50:03 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 19:57:26 by fchevrey         ###   ########.fr       */
+/*   Created: 2018/04/06 15:40:26 by fchevrey          #+#    #+#             */
+/*   Updated: 2018/04/20 14:08:15 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmysdl.h"
 
-int		add_new_texture(t_point size, SDL_Renderer *ren, t_list **src)
+t_texture		*lst_tex_srch(t_list *lst, int id)
 {
+	t_list		*item;
 	t_texture	*tex;
-	t_list		*lst;
-	int			id;
 
-	if (!(tex = texture_new(size, ren)))
-		return (-1);
-	if (!src)
-	{
-		*src = ft_lstnew(tex, 0);
-		return (0);
-	}
-	lst = *src;
-	id = -1;
-	while (lst->next)
-	{
-		if (lst->id >= id)
-			id = lst->id + 1;
-		lst = lst->next;
-	}
-	if (!(lst->next = ft_lstnew(tex, id)))
-		return (-1);
-	return (id);
+	item = ft_lstsrch(lst, id);
+	if (!item || !(item->content))
+		return (NULL);
+	tex = (t_texture*)item->content;
+	return (tex);
 }

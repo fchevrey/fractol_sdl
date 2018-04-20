@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_all_img.c                                     :+:      :+:    :+:   */
+/*   put_tex_to_win.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/23 16:37:39 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/17 22:23:32 by fchevrey         ###   ########.fr       */
+/*   Created: 2018/04/18 14:34:17 by fchevrey          #+#    #+#             */
+/*   Updated: 2018/04/20 14:10:09 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libmysdl.h"
 
-void	free_all_img(t_list **imgs)
+void	put_tex_to_win(t_texture *tex, SDL_Renderer *ren)
 {
-	t_list		*lst;
-	t_list		*lst_n;
-	t_image		*img;
-
-	if (!imgs || !(*imgs))
-		return ;
-	lst = *imgs;
-	while (lst)
-	{
-		lst_n = lst->next;
-		img = (t_image*)lst->content;
-		free_img(&img);
-		free(lst);
-		lst = lst_n;
-	}
+	SDL_UpdateTexture(tex->sdl_tex, NULL, tex->tab_pxl,
+			tex->size->x * sizeof(uint32_t));
+	SDL_RenderCopy(ren, tex->sdl_tex, NULL, NULL);
+	SDL_RenderPresent(ren);
 }

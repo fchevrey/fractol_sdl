@@ -6,7 +6,7 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2018/04/19 19:18:43 by fchevrey         ###   ########.fr        #
+#    Updated: 2018/04/20 15:10:37 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ LIBFT = libft/libft.a
 LIBPT = libpt/libpt.a
 
 LIBVISU = libmysdl/libmysdl.a
+
+USER = $(shell id -un)
 
 SRC_PTHREAD = srcs/pth_fractal.c srcs/pth_mandelbrot.c srcs/pth_mandelbroth_db.c \
 			srcs/pth_burning_ship.c srcs/pth_burning_ship_db.c \
@@ -43,9 +45,11 @@ SRC_VANILLA_O = $(SRC_VANILLA:.c=.o)
 
 SRC_PTHREAD_O = $(SRC_PTHREAD:.c=.o)
 
-INCLUDE = -I /Users/fchevrey/.brew/Cellar/sdl2/2.0.8/include/ -I includes/
+INCLUDE = -I /Users/$(USER)/.brew/Cellar/sdl2/2.0.8/include/SDL2 -I includes/
+#INCLUDE = -I SDL2/SDL2-2.0.8/include/ -I includes/
 
-LIBS = -L /Users/fchevrey/.brew/Cellar/sdl2/2.0.8/lib/ -lSDL2 \
+#LIBS = -L SDL2/SDL2-2.0.8/build/.libs/ -lSDL2 
+LIBS = -L /Users/$(USER)/.brew/Cellar/sdl2/2.0.8/lib/ -lSDL2 \
 		-L libpt/ -lpt -L libft/ -lft -L libmysdl/ -lmysdl
 
 CFLAGS = -Wall -Werror -Wextra $(INCLUDE)
@@ -68,8 +72,12 @@ $(LIBFT):
 $(LIBPT): $(LIBFT)
 	make -C libpt/
 
-$(LIBVISU): $(LIBPT)
+$(LIBVISU): $(LIBPT) $(LIBSDL)
 	make -C libmysdl/
+
+SDL: 
+	brew install sdl2
+	brew link sdl2
 
 clean:
 	rm -f $(SRC_O) $(SRC_TEST_O) $(SRC_PTHREAD_O) $(SRC_VANILLA_O)
@@ -82,4 +90,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re, all, $(LIBVISU), $(LIBFT), $(LIBPT)
+.PHONY: all, clean, fclean, re, all, $(LIBVISU), $(LIBFT), $(LIBPT), $(LIBSDL)

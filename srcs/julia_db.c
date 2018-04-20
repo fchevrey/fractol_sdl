@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/09 19:17:50 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 18:30:37 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:24:03 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** pour zoomer, il faudra augmenter la netteté
 */
 
-void			julia_db(t_param *param, t_image *img, t_limits_db lim,
+void			julia_db(t_param *param, t_texture *img, t_limits_db lim,
 		t_space_db space)
 {
 	t_ptdb			z;

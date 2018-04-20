@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 15:50:21 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 18:23:59 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:23:30 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ static t_param		*set_param(void)
 		return (NULL);
 	if (!(param->win->ren = SDL_CreateRenderer(param->win->ptr, 0, 0)))
 		return (NULL);
-	if (!(param->win->imgs = lst_img_new((*param->win->size),
+	if (!(param->win->texs = lst_tex_new((*param->win->size),
 			param->win->ren, 0)))
 		return (NULL);
-	//if (!(param->win->imgs->next = lst_img_new(pt_set(400, 240),
-	//		param->win->ren, 1)))
-	//	return (NULL);
+	if (!(param->win->texs->next = lst_tex_new(pt_set(400, 240),
+			param->win->ren, 1)))
+		return (NULL);
 	set_space(param->space);
 	set_space_db(param->space_db);
 	param->imax = 70;

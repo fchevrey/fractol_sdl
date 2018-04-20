@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_img_srch.c                                     :+:      :+:    :+:   */
+/*   free_tex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/06 15:40:26 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/17 22:23:26 by fchevrey         ###   ########.fr       */
+/*   Created: 2018/02/26 20:08:14 by fchevrey          #+#    #+#             */
+/*   Updated: 2018/04/20 13:59:48 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmysdl.h"
+#include <stdlib.h>
 
-t_image		*lst_img_srch(t_list *lst, int id)
+void		free_tex(t_texture **tex)
 {
-	t_list		*item;
-	t_image		*img;
-
-	item = ft_lstsrch(lst, id);
-	if (!item || !(item->content))
-		return (NULL);
-	img = (t_image*)item->content;
-	return (img);
+	if (!tex || !*tex)
+		return ;
+	free((*tex)->size);
+	free((*tex)->tab_pxl);
+	(*tex)->size = NULL;
+	(*tex)->tab_pxl = NULL;
+	SDL_DestroyTexture((*tex)->sdl_tex);
+	free(*tex);
+	*tex = NULL;
 }

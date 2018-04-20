@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trace_line_img.c                                   :+:      :+:    :+:   */
+/*   trace_line_tex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/07 18:38:16 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/17 22:33:26 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:08:44 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmysdl.h"
 
-static void		huge_pente(t_point pt1, t_point pt2, t_image *img,
+static void		huge_pente(t_point pt1, t_point pt2, t_texture *tex,
 		uint32_t color)
 {
 	t_point		crd;
@@ -26,16 +26,16 @@ static void		huge_pente(t_point pt1, t_point pt2, t_image *img,
 	if (pt1.y > pt2.y)
 		pt_swap(&pt1, &pt2);
 	crd = pt_set(pt1.x, pt1.y);
-	pt_to_img(crd, img, color);
+	pt_to_tex(crd, tex, color);
 	while (++crd.y < pt2.y)
 	{
 		crd.x = pt1.x + (int)((crd.y - pt1.y) / pente);
-		pt_to_img(crd, img, color);
+		pt_to_tex(crd, tex, color);
 	}
-	pt_to_img(crd, img, color);
+	pt_to_tex(crd, tex, color);
 }
 
-static void		low_pente(t_point pt1, t_point pt2, t_image *img,
+static void		low_pente(t_point pt1, t_point pt2, t_texture *tex,
 		uint32_t color)
 {
 	t_point		crd;
@@ -47,16 +47,16 @@ static void		low_pente(t_point pt1, t_point pt2, t_image *img,
 		divideur = 1;
 	pente = (float)(pt2.y - pt1.y) / divideur;
 	crd = pt_set(pt1.x, pt1.y);
-	pt_to_img(crd, img, color);
+	pt_to_tex(crd, tex, color);
 	while (++crd.x < pt2.x)
 	{
 		crd.y = pt1.y + (int)(pente * (crd.x - pt1.x));
-		pt_to_img(crd, img, color);
+		pt_to_tex(crd, tex, color);
 	}
-	pt_to_img(crd, img, color);
+	pt_to_tex(crd, tex, color);
 }
 
-void			trace_line_img(t_point pt1, t_point pt2, t_image *img,
+void			trace_line_tex(t_point pt1, t_point pt2, t_texture *tex,
 		uint32_t color)
 {
 	float		pente;
@@ -69,7 +69,7 @@ void			trace_line_img(t_point pt1, t_point pt2, t_image *img,
 		divideur = 1;
 	pente = (float)(pt2.y - pt1.y) / divideur;
 	if (pente > -1.5 && pente < 1.5)
-		low_pente(pt1, pt2, img, color);
+		low_pente(pt1, pt2, tex, color);
 	else
-		huge_pente(pt1, pt2, img, color);
+		huge_pente(pt1, pt2, tex, color);
 }

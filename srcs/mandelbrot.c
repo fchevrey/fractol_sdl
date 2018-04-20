@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 13:28:31 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 18:30:55 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:24:09 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 ** pour zoomer, il faudra augmenter la netteté
 */
 
-void			mandelbrot(t_param *param, t_image *img, t_limits lim,
+void			mandelbrot(t_param *param, t_texture *img, t_limits lim,
 		t_space space)
 {
 	t_ptfl			z;

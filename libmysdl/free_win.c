@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/26 20:08:29 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/19 20:00:44 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/20 14:43:45 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		free_win(t_win **win)
 {
 	if (!win || !*win)
 		return ;
-	free_all_textures(&(*win)->texs);
+	free_all_tex(&(*win)->texs);
 	(*win)->texs = NULL;
 	if ((*win)->ren != NULL)
 		SDL_DestroyRenderer((*win)->ren);
