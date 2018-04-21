@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 18:29:02 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/20 14:42:36 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/21 13:02:51 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBMYSDL_H
 # include "libpt.h"
 # include "libft.h"
-//# include "SDL2/SDL.h"
 # include "SDL.h"
 # include <stdint.h>
 

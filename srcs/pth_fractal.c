@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 15:04:04 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/20 15:07:02 by fchevrey         ###   ########.fr       */
+/*   Updated: 2018/04/21 12:52:40 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ void				fractal(t_texture *img, t_param *param)
 		pth_fractal(param, img, lim, tab[param->fractal]);
 	else if (param->space_db->zoom >= ZOOM_MAX_FL)
 		pth_fractal(param, img, lim, tab[3 + param->fractal]);
-	put_img_to_win(img, param->win->ren);
+	put_tex_to_win(img, param->win->ren);
 }

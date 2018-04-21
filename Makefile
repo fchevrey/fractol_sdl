@@ -6,7 +6,7 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2018/04/20 15:10:37 by fchevrey         ###   ########.fr        #
+#    Updated: 2018/04/21 13:01:12 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,4 +90,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re, all, $(LIBVISU), $(LIBFT), $(LIBPT), $(LIBSDL)
+.PHONY: all, clean, fclean, re, all, $(LIBVISU), $(LIBFT), $(LIBPT)
