@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 15:04:04 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/21 12:52:40 by fchevrey         ###   ########.fr       */
+/*   Updated: 2019/03/19 11:34:29 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void			pth_fractal(t_param *param, t_texture *img, t_limits lim,
 	i = -1;
 	lim_db = get_limits_db((*param->win->size), param->space_db->zoom,
 				param->space_db->position);
-	while (++i < NB_THREAD)
+	while (++i < NB_THREAD -1)
 	{
 		pth[i].param = param;
 		pth[i].lim = lim;

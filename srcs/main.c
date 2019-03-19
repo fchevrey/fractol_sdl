@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/05 15:50:21 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/20 14:23:30 by fchevrey         ###   ########.fr       */
+/*   Updated: 2019/03/19 11:32:16 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,21 @@ static t_param		*set_param(void)
 	return (param);
 }
 
+static void			print_controls()
+{
+	ft_putendl("c\t:\tchange color");
+	ft_putendl("f\t:\tchange fractal");
+	ft_putendl("*\t:\tprecision +");
+	ft_putendl("/\t:\tprecision -");
+	ft_putendl("+\t:\tzoom up");
+	ft_putendl("-\t:\tzoom down");
+	ft_putendl("arrows\t:\tmove");
+	ft_putendl("mouse Wheel\t:\tzoomm at a precise point");
+	ft_putendl("on JULIA :");
+	ft_putendl("mouse move change the value of the fractal");
+	ft_putendl("L\t:\tlock the mouse position");
+}
+
 int					main(int ac, char **av)
 {
 	t_param		*param;
@@ -67,6 +82,7 @@ int					main(int ac, char **av)
 	if (param->fractal == JULIA)
 		param->imax = 35;
 	keyboard(400, (void*)param);
+	print_controls();
 	ft_event((void*)param);
 	return (0);
 }

@@ -3,3 +3,4 @@ fractol
 fractol_bonus
 *.DS_Store
 *.o
+*.a

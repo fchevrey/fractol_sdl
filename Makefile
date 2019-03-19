@@ -6,7 +6,7 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2019/03/19 11:07:54 by fchevrey         ###   ########.fr        #
+#    Updated: 2019/03/19 11:16:42 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ CFLAGS = -Wall -Werror -Wextra $(INCLUDE)
 
 CC = gcc
 
-all: SDL2 $(LIBVISU) $(NAME)
+all: SDL2 $(LIBVISU) bonus
 
 $(NAME): $(SRC_O) $(SRC_VANILLA_O)
 	gcc -o $(NAME) $(CFLAGS) $(SRC_O) $(SRC_VANILLA_O)  $(INCLUDE) $(INCLUDE_SDL) \
