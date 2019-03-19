@@ -6,7 +6,7 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2018/05/13 19:59:13 by fchevrey         ###   ########.fr        #
+#    Updated: 2019/03/19 11:07:54 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,21 +49,22 @@ SRC_VANILLA_O = $(SRC_VANILLA:.c=.o)
 
 SRC_PTHREAD_O = $(SRC_PTHREAD:.c=.o)
 
-INCLUDE = -I /Users/$(USER)/.brew/Cellar/sdl2/2.0.8/include/SDL2 -I includes/
+INCLUDE = $(shell sh ./SDL2/bin/sdl2-config --cflags) -I includes/
+
 #INCLUDE = -I SDL2/SDL2-2.0.8/include/ -I includes/
 
 #LIBS = -L SDL2/SDL2-2.0.8/build/.libs/ -lSDL2 
-LIBS = -L /Users/$(USER)/.brew/Cellar/sdl2/2.0.8/lib/ -lSDL2 \
+LIBS =  $(shell sh ./SDL2/bin/sdl2-config --libs) \
 		-L libpt/ -lpt -L libft/ -lft -L libmysdl/ -lmysdl
 
 CFLAGS = -Wall -Werror -Wextra $(INCLUDE)
 
 CC = gcc
 
-all: $(LIBVISU) $(NAME)
+all: SDL2 $(LIBVISU) $(NAME)
 
 $(NAME): $(SRC_O) $(SRC_VANILLA_O)
-	gcc -o $(NAME) $(SRC_O) $(SRC_VANILLA_O)  $(INCLUDE) $(INCLUDE_SDL) \
+	gcc -o $(NAME) $(CFLAGS) $(SRC_O) $(SRC_VANILLA_O)  $(INCLUDE) $(INCLUDE_SDL) \
 		$(LIBS)
 
 bonus: $(LIBFT) $(LIBVISU) $(SRC_O) $(SRC_PTHREAD_O)

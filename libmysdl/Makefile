@@ -6,7 +6,7 @@
 #    By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/10 17:05:18 by fchevrey          #+#    #+#              #
-#    Updated: 2018/04/20 15:08:40 by fchevrey         ###   ########.fr        #
+#    Updated: 2019/03/19 11:06:25 by fchevrey         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC_O = $(SRC_C:.c=.o)
 
 USER = $(shell id -un)
 
-INCLUDE = -I ../includes/ -I /Users/$(USER)/.brew/Cellar/sdl2/2.0.8/include/SDL2
+INCLUDE = -I ../includes/  $(shell sh ../SDL2/bin/sdl2-config --cflags)
 #INCLUDE = -I ../SDL2/SDL2-2.0.8/include/ -I ../includes/
 
 CFLAGS = -Wall -Werror -Wextra $(INCLUDE)

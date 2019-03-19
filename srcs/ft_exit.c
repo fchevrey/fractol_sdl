@@ -6,7 +6,7 @@
 /*   By: fchevrey <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 16:28:06 by fchevrey          #+#    #+#             */
-/*   Updated: 2018/04/21 12:51:12 by fchevrey         ###   ########.fr       */
+/*   Updated: 2019/03/19 11:08:31 by fchevrey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ void	ft_exit(t_param **param)
 	free(*param);
 	*param = NULL;
 	SDL_Quit();
-	//exit(1);
-	while(1);
+	exit(1);
 }
