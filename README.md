@@ -5,6 +5,8 @@ the purpose is to display fractals and enabled the controller to :
 - change colors 
 - move around
 
+to acelerate render, I implement multi-threading using pthread c library.
+
 the programm display 3 fractals  : Mandelbroath, Julia and burningship
 
 The controls are :
