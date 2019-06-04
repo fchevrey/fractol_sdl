@@ -1,8 +1,8 @@
 project fractol of 42 school
 the purpose is to display fractals and enabled the controller to :
-- change certains value, 
-- zoom on it, c
-- hange colors 
+- change the fractal on runtime, 
+- zoom deeply on it,
+- change colors 
 - move around
 
 the programm display 3 fractals  : Mandelbroath, Julia and burningship
